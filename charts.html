@@ -379,8 +379,7 @@
 
 
 
-                        <button class="simplepicker-btn" onclick="simplepicker.open();
-                        ">Show Picker</button>
+                        <button class="simplepicker-btn">Show Picker</button>
 
 
                         <script src="dist/simplepicker.js"></script>
@@ -392,19 +391,11 @@
                           simplepicker.open();
 
                           const $button = document.querySelector('button');
-                          const $eventLog = document.querySelector('.event-log');
+
                           $button.addEventListener('click', (e) => {
                             simplepicker.open();
                           });
-
-                          // $eventLog.innerHTML += '\n\n';
-                          simplepicker.on('submit', (date, readableDate) => {
-                            $eventLog.innerHTML += readableDate + '\n';
-                          });
-
-                          simplepicker.on('close', (date) => {
-                            $eventLog.innerHTML += 'Picker Closed' + '\n';
-                          });
+                          simplepicker.open();
                         </script>
 
 
