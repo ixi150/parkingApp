@@ -78,8 +78,7 @@
                         name="password2" placeholder="Powtórz hasło">
                     </div>
                   </div>
-                  <a href="login.html" type='submit' class="btn btn-primary btn-user btn-block" data-toggle="modal" data-target="#myModal" data-role="" id="exampleSubmitButton">
-                    Zarejestruj konto
+                  <input value="Zarejestruj konto" type='submit' class="btn btn-primary btn-user btn-block" id="exampleSubmitButton">
                   </a>
                   <hr>
 
@@ -117,20 +116,64 @@
     var inputPassword2 = document.getElementById('exampleRepeatPassword');
     var inputSubmit = document.getElementById('exampleSubmitButton');
 
-    inputPassword.addEventListener('input', OnPasswordUpdate);
-    inputPassword2.addEventListener('input', OnPasswordUpdate);
-    function OnPasswordUpdate()
+    function CreateSpanError(parent)
+    {
+      var span = document.createElement('span');
+      span.className = 'text-danger';
+      span.style = 'display: flex; justify-content: center;';
+      parent.appendChild(span);
+      return span;
+    }
+    var inputPasswordSpan = CreateSpanError(inputPassword.parentElement);
+    var inputPasswordSpan2 = CreateSpanError(inputPassword2.parentElement);
+
+    inputPassword.addEventListener('input', PasswordEqualCheck);
+    inputPassword2.addEventListener('input', PasswordEqualCheck);
+    function PasswordEqualCheck()
     {
         let arePasswordsEqual = inputPassword.value == inputPassword2.value;
-        if (arePasswordsEqual)
+        let isPassLongEnough = inputPassword.value.length >= 8;
+        let isSubmitEnabled = arePasswordsEqual && isPassLongEnough
+        if (isSubmitEnabled)
         {
-          inputSubmit.className = "btn btn-primary btn-user btn-block";
+          inputSubmit.setAttribute('class', "btn btn-primary btn-user btn-block");
         }
         else
         {
           inputSubmit.className = "btn btn-secondary btn-user btn-block";
         }
+        inputSubmit.disabled = !isSubmitEnabled;
+        if (arePasswordsEqual || inputPassword2.value == '')
+        {
+          inputPassword2.className = defaultInputPasswordClass;
+          inputPasswordSpan2.innerText = '';
+        }
+        else
+        {
+          inputPassword2.className = defaultInputPasswordClass + " form-control-error";
+          inputPasswordSpan2.innerText = 'Hasła muszą być identyczne';
+        }
     }
+   
+    var defaultInputPasswordClass = inputPassword.className;
+    inputPassword.addEventListener('input', PasswordLenghtCheck);
+    function PasswordLenghtCheck()
+    {
+        let isPassLongEnough = inputPassword.value.length >= 8;
+        if (isPassLongEnough || inputPassword.value == '')
+        {
+          inputPassword.className = defaultInputPasswordClass;
+          inputPasswordSpan.innerText = '';
+        }
+        else
+        {
+          inputPassword.className = defaultInputPasswordClass + " form-control-error";
+          inputPasswordSpan.innerText = 'Hasło musi mieć conajmniej 8 znaków';
+        }
+    }
+
+    window.addEventListener('load', PasswordEqualCheck);
+    window.addEventListener('load', PasswordLenghtCheck);
   </script>
 </body>
 
