@@ -1,0 +1,33 @@
+{
+    "name": "soulismydiet/marekdzilne-rekrutacja-hrtec",
+    "description": "A RSS fetcher",
+    "keywords": ["RSS", "Fetch"],
+    "homepage": "https://github.com/SoulIsMyDiet/RSSFetch",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marek Dzilne",
+            "email": "marekd.90@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "ext-SimpleXML": "^7.2",
+        "prooph/service-bus": "^6.2",
+      "ext-libxml": "*"
+    },
+    "require-dev": {
+        "mockery/mockery": "dev-master@dev",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MarekDzilneRekrutacjaHRtec\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MarekDzilneRekrutacjaHRtec\\": "tests/"
+        }
+    }
+}
