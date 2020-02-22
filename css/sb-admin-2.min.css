@@ -12254,3 +12254,7 @@ body.sidebar-toggled footer.sticky-footer {
 .forget {
     display: block;
 }
+
+[data-role="disabled"] {
+    background-color: var(--red);
+}
