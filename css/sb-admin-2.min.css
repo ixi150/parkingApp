@@ -4608,7 +4608,7 @@ input[type=submit].btn-block {
 
 .navbar-expand {
     flex-flow: row nowrap;
-    justify-content: flex-start
+    justify-content: flex-end;
 }
 
 .navbar-expand>.container,
@@ -12260,9 +12260,34 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .form-control-error {
-    border: 3px solid #e1541ead !important; 
+    border: 3px solid #e1541ead !important;
 }
+
 .form-control-error:focus {
     color: #9e6a52 !important;
     box-shadow: 0 0 0 .2rem #e1551e44 !important;
+}
+
+[type="date"] {
+    background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat;
+}
+
+[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
+
+[type="time"] {
+    background: #fff url(../img/time.png) 97% 50% no-repeat;
+}
+
+[type="time"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+[type="time"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
 }
