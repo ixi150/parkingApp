@@ -4,8 +4,7 @@ session_start();
 
 $verification_data = $_POST['verification_data'];
 $password = $_POST['password'];
-$rememberMe = $_POST['rememberMe'];
-//var_dump($rememberMe);exit;
+$rememberMe = isset($_POST['rememberMe'])? $_POST['rememberMe']: null;
 $dsn = "mysql:host=".DBHOST.";dbname=".DBNAME.";port=3306";
 $pdo = new PDO($dsn, DBUSER, DBPWD);
 if(strstr($verification_data, '@') ) {
@@ -23,5 +22,6 @@ if($user && password_verify($password, $user['password'])){
     }
 }else{
     $_SESSION["wrong_login"] = 'Nie ma użytkownika o takich danych';
-
+    header("Location: /login.html");
+    exit();
 }
