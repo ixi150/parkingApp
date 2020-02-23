@@ -143,15 +143,15 @@
                 <div class="card-body">
                   <div class="chart-area">
                     <div id="myAreaChart">
-                      <form class="user">
+                      <form class="user" action="./app/ticket_register.php" method="post">
                         <div class="form-group">
                           <input type="number" class="form-control form-control-user col-xl-9 col-lg-9"
-                            id="exampleInputNumber" placeholder="Numer rejestracyjny">
+                            id="exampleInputNumber" placeholder="Numer rejestracyjny" name="plates">
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" >
                           <input type="text-area" class="form-control form-control-user col-xl-9 col-lg-9"
-                            id="exampleInputText" placeholder="Powód złożenia wniosku">
+                            id="exampleInputText" placeholder="Powód złożenia wniosku" name="description">
                         </div>
 
 
@@ -159,14 +159,11 @@
 
                         <div>Wybierz datę:</div>
 
-                        <input type="time" class="form-control form-control-user col-xl-5 col-lg-5">
+                        <input type="time" class="form-control form-control-user col-xl-5 col-lg-5" name="time">
 
-                        <input type="date" class="form-control form-control-user col-xl-5 col-lg-5">
+                        <input type="date" class="form-control form-control-user col-xl-5 col-lg-5" name="date">
 
-
-
-
-
+              <input type="submit" value="złóż wniosek">
 
                     </div>
                   </div>
