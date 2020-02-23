@@ -301,7 +301,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id='logged_user_name'></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -893,13 +893,21 @@
   <script src="js/demo/datatables-demo.js"></script>
 
   <script>
-    window.addEventListener('load', OnPageLoaded);
-    function OnPageLoaded()
+    InitAjaxRequest();
+    function InitAjaxRequest() 
     {
       var loggedUserNameSpan = document.getElementById('logged_user_name');
-      loggedUserNameSpan.innerText = "Mamamia";
+      loggedUserNameSpan.innerText = 'loading...';
+
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          loggedUserNameSpan.innerText = this.responseText;
+        }
+      };
+      xmlhttp.open("GET", "./app/sessionUser.php", true);
+      xmlhttp.send();
     }
-  
   </script>
 </body>
 
