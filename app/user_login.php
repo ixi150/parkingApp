@@ -21,6 +21,7 @@ if($user && password_verify($password, $user['password'])){
     if($rememberMe){
         setcookie('LOGIN_DATA', $verification_data.';'.$user['password'], time()+60*60*24*30, '/');
     }
+    unset($_SESSION["wrong_login"]);
 }else{
     $_SESSION["wrong_login"] = 'Nie ma użytkownika o takich danych';
 
