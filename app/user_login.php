@@ -23,6 +23,6 @@ if($user && password_verify($password, $user['password'])){
     unset($_SESSION["wrong_login"]);
 }else{
     $_SESSION["wrong_login"] = 'Nie ma użytkownika o takich danych';
-    header("Location: /login.html");
+    header("Location: ../login.html");
     exit();
 }
