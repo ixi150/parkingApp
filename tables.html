@@ -892,6 +892,15 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
 
+  <script>
+    window.addEventListener('load', OnPageLoaded);
+    function OnPageLoaded()
+    {
+      var loggedUserNameSpan = document.getElementById('logged_user_name');
+      loggedUserNameSpan.innerText = "Mamamia";
+    }
+  
+  </script>
 </body>
 
 </html>
