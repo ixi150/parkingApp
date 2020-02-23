@@ -12254,3 +12254,11 @@ body.sidebar-toggled footer.sticky-footer {
 .forget {
     display: block;
 }
+
+[data-role="disabled"] {
+    background-color: var(--red);
+}
+
+.form-control-error {
+    border: 2px solid #e1541ead;
+}
