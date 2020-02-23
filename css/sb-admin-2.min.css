@@ -12291,3 +12291,7 @@ body.sidebar-toggled footer.sticky-footer {
 [type="time"]::-webkit-calendar-picker-indicator {
     opacity: 0;
 }
+
+.thank {
+    height: 50vh;
+}
