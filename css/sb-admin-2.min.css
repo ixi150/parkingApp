@@ -9009,6 +9009,10 @@ button.bg-dark:hover {
 }
 
 @media (min-width:768px) {
+
+
+
+
     .m-md-0 {
         margin: 0 !important
     }
@@ -10345,6 +10349,10 @@ button.bg-dark:hover {
 }
 
 @media (min-width:576px) {
+    .card {
+        height: 60vh;
+    }
+
     .text-sm-left {
         text-align: left !important
     }
@@ -10369,6 +10377,10 @@ button.bg-dark:hover {
 
     .text-md-center {
         text-align: center !important
+    }
+
+    .card {
+        height: 60vh;
     }
 }
 
@@ -11165,6 +11177,10 @@ a:focus {
         position: relative
     }
 
+    .card {
+        height: 60vh;
+    }
+
     .topbar .dropdown .dropdown-menu {
         width: auto;
         right: 0
@@ -11348,6 +11364,12 @@ a:focus {
 }
 
 @media (min-width:768px) {
+
+
+    .card {
+        height: 60vh;
+    }
+
     .sidebar {
         width: 14rem !important
     }
@@ -11712,6 +11734,10 @@ a:focus {
 @media (min-width:768px) {
     .chart-area {
         height: 20rem
+    }
+
+    .card {
+        height: 60vh;
     }
 }
 

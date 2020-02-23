@@ -68,6 +68,24 @@
       </div>
     </div>
   </nav>
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Czy na pewno?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Kliknij 'Wyloguj' jeżeli chcesz zakończyć sesję.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Anuluj</button>
+          <a class="btn btn-primary" href="login.html">Wyloguj</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Header -->
   <header class="bg-primary py-5 mb-5">
@@ -138,6 +156,12 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
 
   <script>
     document.querySelector('.d-only-logged').style = 'display: none;';
