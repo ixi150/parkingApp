@@ -12260,9 +12260,10 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .form-control-error {
-    border: 2px solid #e1541ead !important; 
+    border: 3px solid #e1541ead !important; 
 }
 .form-control-error:focus {
-    color: #9e6a52;
-    box-shadow: 0 0 0 .2rem #e1551e44;
+    color: #9e6a52 !important;
+    box-shadow: 0 0 0 .2rem #e1551e44 !important;
+
 }
