@@ -36,20 +36,17 @@
           </li>
 
           </li>
-          <li class="nav-item">
+          <li class="nav-item d-only-notlogged">
             <a class="nav-link" href="login.html">Zaloguj się</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item d-only-notlogged">
             <a class="nav-link" href="register.html">Rejestracja</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link">|</a>
-          </li>
 
-          <li class="nav-item dropdown no-arrow ">
+          <li class="nav-item dropdown no-arrow d-only-logged">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+              <span class="mr-2 d-none d-lg-inline text-gray-600 small" id='logged_user_name'></span>
               <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
             </a>
             <!-- Dropdown - User Information -->
@@ -71,6 +68,24 @@
       </div>
     </div>
   </nav>
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Czy na pewno?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Kliknij 'Wyloguj' jeżeli chcesz zakończyć sesję.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Anuluj</button>
+          <a class="btn btn-primary" href="login.html">Wyloguj</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Header -->
   <header class="bg-primary py-5 mb-5">
@@ -96,16 +111,16 @@
         <h2>Jak to działa?</h2>
         <hr />
         <p>
-          Jesteś pojebem bez szkoły?
-          Masz za duże ego i za grosz szacunku do młodszych od siebie?
-          Czy pierdolenie farmazonów to twoje ulubione hobby?
+          Logowanie jest bardzo proste, zaloguj się numerem telefonu albo emailem.
+          Zgłoś awaryjne parkowanie wraz z powodem przez nasz piękny i intuicyjny formularz.
+          Straż miejska zobaczy w bazie Twoje zgłoszenie i nie wlepi ci mandatu!
         </p>
         <p>
-          Jeżeli odpowiedziałeś 'tak' na jedno, wszystkie lub żadne z tych pytań, jesteśmy tutaj specjalnie dla ciebie,
-          kupo koziego gówna!
-          Wykastrujemy ciebie i całą twoją rodzinę łopatą - dokładnie tak jak lubisz!
+          Przykładowe uzasadnione użycia to na przykład:<br>
+          -Osoba starsza lub niepełnosprawna zamawiająca taksówkę,<br>
+          -Awaria hydrauliki,<br>
+          -Przeprowadzka czy wyposażenie lokalu przedsiębiorcy.<br>
         </p>
-        <!-- <a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a> -->
       </div>
       <div class="col-md-4 mb-5">
         <h2>Kontakt</h2>
@@ -141,6 +156,33 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <script>
+    document.querySelector('.d-only-logged').style = 'display: none;';
+    
+    var loggedUserNameSpan = document.getElementById('logged_user_name');
+    loggedUserNameSpan.innerText = 'loading...';
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        loggedUserNameSpan.innerText = this.responseText;
+        if (this.responseText != '')
+        {
+          document.querySelectorAll('.d-only-notlogged').forEach(function(e){e.style = 'display: none;'});
+          document.querySelector('.d-only-logged').style = '';
+        }
+      }
+    };
+    xmlhttp.open("GET", "./app/sessionUser.php", true);
+    xmlhttp.send();
+  </script>
 </body>
 
 </html>

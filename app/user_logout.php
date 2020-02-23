@@ -13,6 +13,7 @@ if( isset($_SESSION) )
     {
         echo "Failed to log out";
     }
+    header("Location: ../login.html");
 } 
 else 
 { 

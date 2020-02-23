@@ -61,6 +61,7 @@
 
 
                   </form>
+                  <span class='text-danger' id='wrong-login-message'></span>
                   <hr>
                   <div class="text-center">
                     <a class="small" href="forgot-password.html">Zapomniałeś hasła?</a>
@@ -90,6 +91,18 @@
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
 
+  <script>
+    var wrongLoginSpan = document.getElementById('wrong-login-message');
+
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          wrongLoginSpan.innerText = this.responseText;
+        }
+      };
+      xmlhttp.open("GET", "./app/sessionBadLogin.php", true);
+      xmlhttp.send();
+  </script>
 </body>
 
 </html>
